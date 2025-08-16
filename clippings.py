@@ -2,9 +2,6 @@
 Parses My Clippings.txt from kindle reader.
 
 Connect kindle to computer. Open as disk/folder. Copy My Clippings.txt.
-
-
-ON JEEVES: pym kindle.clippings MyDocuments/EBooks/myclippings/My\ Clippings.txt /srv/http/kindle/index.html
 """
 
 

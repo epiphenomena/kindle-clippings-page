@@ -1,3 +1,13 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "click",
+#     "jinja2",
+#     "pendulum",
+# ]
+# ///
+
 """
 Parses My Clippings.txt from kindle reader.
 
@@ -6,7 +16,7 @@ Connect kindle to computer. Open as disk/folder. Copy My Clippings.txt.
 
 
 import click
-import timestamp
+import pendulum
 import jinja2
 import pathlib
 
@@ -18,7 +28,7 @@ ENV = jinja2.Environment(
     undefined=jinja2.StrictUndefined,
     optimized=False,
 )
-ENV.globals["timestamp"] = timestamp
+ENV.globals["pendulum"] = pendulum
 
 
 class Highlight:
@@ -37,7 +47,7 @@ def parse_meta(m):
     try:
         rloc, _, rdt = m.rpartition("|")
         loc = rloc.split("Location")[1].strip()
-        dt = timestamp.pend.parse(
+        dt = pendulum.parse(
             rdt.split("Added on")[1].strip().partition(" ")[2],
             strict=False,
         )

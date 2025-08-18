@@ -9,40 +9,20 @@ Then creates a static html file
 
 Connect kindle to computer via usb. "Open as" disk/folder. Copy `My Clippings.txt` to desired directory.
 
-### Using uv (recommended)
-
 This project uses [uv](https://github.com/astral-sh/uv) for dependency management and execution.
 
 1. Install uv if you haven't already:
-   ```bash
-   pip install uv
-   ```
 
-2. Install dependencies:
-   ```bash
-   uv pip install -r requirements.txt
-   ```
-
-3. Run the script:
+2. Run the script:
    ```bash
    uv run clippings.py /path/to/My\ Clippings.txt /path/to/save.html
    ```
 
-### Using standard Python
+3. Or make clippings.py executable and simply `clippings.py /path/to/My\ Clippings.txt /path/to/save.html`
 
-If you prefer not to use uv:
-
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Run the script:
-   ```bash
-   python clippings.py /path/to/My\ Clippings.txt /path/to/save.html
-   ```
-
-Open html file in browser.
+4. Open html file in browser.
 
 
-
+The HTML is completely self-contained. The styles.css and functions.js files are inlined.
+Therefore, no web server is required to open locally, and the single output file
+is all that needs to be uploaded if hosting is desired.

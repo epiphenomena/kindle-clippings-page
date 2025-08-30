@@ -12,10 +12,21 @@
     <div class="statement">
         <div class="header">
             <h1>My Clippings</h1>
+            <div class="filters">
+                <div class="filter-container">
+                    <input type="text" id="titleFilter" placeholder="Filter by title..." autocomplete="off" />
+                    <div id="titleSuggestions" class="suggestions"></div>
+                </div>
+                <div class="filter-container">
+                    <input type="text" id="authorFilter" placeholder="Filter by author..." autocomplete="off" />
+                    <div id="authorSuggestions" class="suggestions"></div>
+                </div>
+                <button id="clearFilters">Clear Filters</button>
+            </div>
         </div>
         <div class="main">
             % for h in highlights
-            <div class="clipping">
+            <div class="clipping" data-title="{{h.title}}" data-author="{{h.author}}">
                 <h2 class="title">{{h.title}}</h2>
                 <p class="clipping">{{h.text}}</p>
                 <h4 class="meta">

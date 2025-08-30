@@ -30,6 +30,56 @@ function collectUniqueTitlesAndAuthors() {
     
     allTitles = Array.from(titleSet).sort();
     allAuthors = Array.from(authorSet).sort();
+    
+    // Populate sidebars
+    populateSidebars();
+}
+
+function populateSidebars() {
+    const titlesList = document.getElementById('titlesList');
+    const authorsList = document.getElementById('authorsList');
+    
+    // Clear existing content
+    titlesList.innerHTML = '';
+    authorsList.innerHTML = '';
+    
+    // Populate titles sidebar
+    allTitles.forEach(title => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = title;
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            filterByTitle(title);
+        });
+        li.appendChild(a);
+        titlesList.appendChild(li);
+    });
+    
+    // Populate authors sidebar
+    allAuthors.forEach(author => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = author;
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            filterByAuthor(author);
+        });
+        li.appendChild(a);
+        authorsList.appendChild(li);
+    });
+}
+
+function filterByTitle(title) {
+    document.getElementById('titleFilter').value = title;
+    filterHighlights();
+}
+
+function filterByAuthor(author) {
+    document.getElementById('authorFilter').value = author;
+    filterHighlights();
 }
 
 function filterHighlights() {

@@ -38,7 +38,7 @@ body {
     "Helvetica Neue", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji",
     sans-serif;
   line-height: 1.4;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 20px auto;
   padding: 0 10px;
   word-wrap: break-word;
@@ -106,6 +106,66 @@ h1 {
 .filters button {
   height: fit-content;
   padding: 10px 15px;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar {
+  flex: 0 0 200px;
+  background-color: #1a242f;
+  background-color: var(--background-alt);
+  border-radius: 6px;
+  padding: 15px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #526980;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 8px 0;
+  border-bottom: 1px solid #161f27;
+  border-bottom: 1px solid var(--background);
+}
+
+.sidebar li:last-child {
+  border-bottom: none;
+}
+
+.sidebar a {
+  color: #dbdbdb;
+  color: var(--text-main);
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar a:hover {
+  color: #41adff;
+  color: var(--links);
+  text-decoration: underline;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
 }
 
 .suggestions {

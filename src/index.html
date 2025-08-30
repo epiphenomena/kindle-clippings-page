@@ -24,31 +24,39 @@
                 <button id="clearFilters">Clear Filters</button>
             </div>
         </div>
-        <div class="main">
-            % for h in highlights
-            <div class="clipping" data-title="{{h.title}}" data-author="{{h.author}}">
-                <h2 class="title">{{h.title}}</h2>
-                <p class="clipping">{{h.text}}</p>
-                <h4 class="meta">
-                    <span class="author">{{h.author}}</span>
-                    |
-                    <span class="date">{{"{:YYYY-MM-DD}".format(h.dt)}}</span>
-                    |
-                    <span class="loc">{{h.loc}}</span>
-                </h4>
+        <div class="content-wrapper">
+            <div class="sidebar" id="titlesSidebar">
+                <h3>Titles</h3>
+                <ul id="titlesList"></ul>
             </div>
-            % endfor
+            <div class="main">
+                % for h in highlights
+                <div class="clipping" data-title="{{h.title}}" data-author="{{h.author}}">
+                    <h2 class="title">{{h.title}}</h2>
+                    <p class="clipping">{{h.text}}</p>
+                    <h4 class="meta">
+                        <span class="author">{{h.author}}</span>
+                        |
+                        <span class="date">{{"{:YYYY-MM-DD}".format(h.dt)}}</span>
+                        |
+                        <span class="loc">{{h.loc}}</span>
+                    </h4>
+                </div>
+                % endfor
+            </div>
+            <div class="sidebar" id="authorsSidebar">
+                <h3>Authors</h3>
+                <ul id="authorsList"></ul>
+            </div>
         </div>
         <div class="footer">
             <p>Produced: {{"{:YYYY-MM-DD}".format(pendulum.now())}}</p>
         </div>
     </div>
+    
+    {{styles}}
+    
+    {{script}}
 </body>
-
-{{styles}}
-
-
-{{script}}
-
 
 </html>

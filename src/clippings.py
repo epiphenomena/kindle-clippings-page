@@ -59,23 +59,41 @@ def parse_meta(m):
 
 def parse_clipping(highlight):
     lines = highlight.strip().splitlines()
-    if len(lines) != 4 or lines[3] == "":
-        try:
-            if lines[1].startswith("- Your Bookmark"):
-                print("Skipping bookmark.")
-                return None
-        except:
-            pass
-        print(f"ERROR PARSING: {highlight}")
+    
+    # Handle empty highlights
+    if len(lines) == 0:
         return None
+    
+    # Check for bookmarks and notes (which have fewer lines)
+    if len(lines) >= 2:
+        if lines[1].startswith("- Your Bookmark"):
+            print("Skipping bookmark.")
+            return None
+        elif lines[1].startswith("- Your Note"):
+            print("Skipping note.")
+            return None
+    
+    # Regular highlights should have 4 lines: title, metadata, blank, content
+    if len(lines) != 4:
+        print(f"ERROR PARSING (expected 4 lines, got {len(lines)}): {highlight}")
+        return None
+        
+    if lines[3] == "":
+        print(f"ERROR PARSING (empty content): {highlight}")
+        return None
+    
     lines = iter(lines)
     title = next(lines)
     if title[0] == "\ufeff":
         # trim the hex character
         title = title[1:]
     meta = next(lines)
-    if meta.startswith("- Your Note"):
+    
+    # Additional check for highlight type
+    if not meta.startswith("- Your Highlight"):
+        print(f"ERROR PARSING (not a highlight): {meta}")
         return None
+        
     dt, loc = parse_meta(meta)
     blank = next(lines)  # blank
     assert blank == ""

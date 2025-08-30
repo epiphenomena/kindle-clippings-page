@@ -39,7 +39,9 @@ class Highlight:
     def author(self):
         if "(" not in self.title:
             return "Unknown"
-        return self.title.split("(")[1].split(")")[0]
+        author = self.title.split("(")[1].split(")")[0]
+        # Limit author name length to 50 characters to handle potential errors
+        return author[:50] if len(author) <= 50 else author[:47] + "..."
 
 
 def parse_meta(m):

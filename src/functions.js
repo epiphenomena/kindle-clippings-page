@@ -318,4 +318,32 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set up clear filters button
     document.getElementById('clearFilters').addEventListener('click', clearFilters);
+    
+    // Set up mobile sidebar toggle buttons
+    const toggleTitlesBtn = document.getElementById('toggleTitlesSidebar');
+    const toggleAuthorsBtn = document.getElementById('toggleAuthorsSidebar');
+    const titlesSidebar = document.getElementById('titlesSidebar');
+    const authorsSidebar = document.getElementById('authorsSidebar');
+    
+    if (toggleTitlesBtn && toggleAuthorsBtn) {
+        toggleTitlesBtn.addEventListener('click', function() {
+            titlesSidebar.classList.add('active');
+        });
+        
+        toggleAuthorsBtn.addEventListener('click', function() {
+            authorsSidebar.classList.add('active');
+        });
+        
+        // Set up close buttons for mobile sidebars
+        const closeTitlesBtn = titlesSidebar.querySelector('.close-sidebar-btn');
+        const closeAuthorsBtn = authorsSidebar.querySelector('.close-sidebar-btn');
+        
+        closeTitlesBtn.addEventListener('click', function() {
+            titlesSidebar.classList.remove('active');
+        });
+        
+        closeAuthorsBtn.addEventListener('click', function() {
+            authorsSidebar.classList.remove('active');
+        });
+    }
 });

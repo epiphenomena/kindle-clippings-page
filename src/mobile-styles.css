@@ -1,0 +1,41 @@
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .sidebar {
+    flex: 0 0 auto;
+    max-height: 300px;
+  }
+  
+  .mobile-menu-buttons {
+    display: flex;
+  }
+  
+  .close-sidebar-btn {
+    display: block;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .sidebar.active {
+    display: block;
+  }
+  
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-container {
+    min-width: auto;
+  }
+  
+  .filters button {
+    align-self: flex-start;
+  }
+}

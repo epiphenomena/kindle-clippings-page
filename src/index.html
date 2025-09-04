@@ -12,6 +12,10 @@
     <div class="statement">
         <div class="header">
             <h1>My Clippings</h1>
+            <div class="mobile-menu-buttons">
+                <button id="toggleTitlesSidebar" class="mobile-toggle-btn">☰ Titles</button>
+                <button id="toggleAuthorsSidebar" class="mobile-toggle-btn">☰ Authors</button>
+            </div>
             <div class="filters">
                 <div class="filter-container">
                     <input type="text" id="titleFilter" placeholder="Filter by title..." autocomplete="off" />
@@ -26,7 +30,10 @@
         </div>
         <div class="content-wrapper">
             <div class="sidebar" id="titlesSidebar">
-                <h3>Titles</h3>
+                <div class="sidebar-header">
+                    <h3>Titles</h3>
+                    <button class="close-sidebar-btn">×</button>
+                </div>
                 <ul id="titlesList"></ul>
             </div>
             <div class="main">
@@ -45,7 +52,10 @@
                 % endfor
             </div>
             <div class="sidebar" id="authorsSidebar">
-                <h3>Authors</h3>
+                <div class="sidebar-header">
+                    <h3>Authors</h3>
+                    <button class="close-sidebar-btn">×</button>
+                </div>
                 <ul id="authorsList"></ul>
             </div>
         </div>

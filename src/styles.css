@@ -84,11 +84,26 @@ h1 {
   margin-top: 0;
 }
 
+.mobile-menu-buttons {
+  display: none;
+  margin-bottom: 15px;
+}
+
+.mobile-toggle-btn {
+  margin-right: 10px;
+  padding: 8px 12px;
+  background-color: var(--button-base);
+  color: var(--text-main);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .filters {
   margin-bottom: 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 20px; /* Increased spacing between inputs */
   align-items: flex-end;
 }
 
@@ -122,6 +137,33 @@ h1 {
   padding: 15px;
   max-height: 80vh;
   overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -15px -15px 15px -15px;
+  padding: 10px 15px;
+  background-color: var(--background);
+  border-radius: 6px 6px 0 0;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.close-sidebar-btn {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: none;
 }
 
 .sidebar h3 {
@@ -1013,4 +1055,46 @@ div.clipping h4.meta {
 }
 div.clipping p {
   clear: both;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .sidebar {
+    flex: 0 0 auto;
+    max-height: 300px;
+  }
+  
+  .mobile-menu-buttons {
+    display: flex;
+  }
+  
+  .close-sidebar-btn {
+    display: block;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .sidebar.active {
+    display: block;
+  }
+  
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-container {
+    min-width: auto;
+  }
+  
+  .filters button {
+    align-self: flex-start;
+  }
 }
